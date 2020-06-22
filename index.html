@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<div class="container">
+<img src="carried-along.jpg" alt="">
+   <div class="timer"> <p class="seconds"></p>
+  
+</div>
+
+</div>
+  
+
+
+
+    <audio class="beep" src="beep.mp3" preload="auto"></audio>
+
+    <script>
+
+        const timeDisplay = document.querySelector(".seconds");
+        const ding = document.querySelector(".beep");
+ 
+     
+
+        setInterval(showTime, 100);
+
+        function showTime() {
+
+            const curTime = new Date(); //set current time
+            const curHour = curTime.getHours();
+            const curMin = curTime.getMinutes();
+            const curSec = curTime.getSeconds();
+            timeDisplay.textContent = `H: ${curHour} M: ${curMin} S: ${curSec}`;
+            if (curSec === 0) {
+                ding.play();
+            };
+        }
+
+    </script>
+
+</body>
+
+</html>
